@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Playground</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag     'default', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag :defaults %>
+
+</head>
+
+<body>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<% if account_signed_in? %>
+
+    <h2>Hello, <%= current_account.email %></h2>
+    <%= button_to "Sign Out", destroy_account_session_path, method: :delete %>
+
+<% end %>
+
+<%= yield %>
+</body>
+</html>
